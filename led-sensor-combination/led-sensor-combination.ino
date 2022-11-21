@@ -2,8 +2,14 @@
 #include <Adafruit_NeoPixel.h>
 #define LED_PIN 6
 #define LED_COUNT 12
-Adafruit_NeoPixel strip(LED_COUNT, LED_PIN, NEO_RGBW + NEO_KHZ800);
-uint32_t magenta = strip.Color(120, 0, 120, 0);
+Adafruit_NeoPixel strip(LED_COUNT, LED_PIN, NEO_GRBW + NEO_KHZ800);
+uint32_t magenta = strip.Color(148, 0, 211, 0);
+uint32_t purple = strip.Color(75, 0, 130, 0);
+uint32_t blue = strip.Color(0, 0, 255, 0);
+uint32_t green = strip.Color(0, 255, 0, 0);
+uint32_t yellow = strip.Color(255, 255, 0, 0);
+uint32_t orange = strip.Color(255, 127, 0, 0);
+uint32_t red = strip.Color(255, 0, 0, 0);
 
 // Setup of ultrasonic sensor
 const int trigPin = 5;
@@ -52,31 +58,25 @@ void loop() {
   int distanceInt = (int)distanceCm;
 
   switch (distanceInt) {
-    case 1 ... 20:
-      Serial.print("Within 20cm");
-      for (int i = 0; i < 4; i++) {
-    strip.setPixelColor(i, 30, 180, 40, 20);
-    strip.show();
-    delay(10);
-  }
+    case 1 ... 10:
+      Serial.print("Within 10cm - red");
+      strip.fill(red);
+      strip.show();
       break;
-    case 21 ... 50:
-      Serial.print("Within 50cm");
-      for (int i = 0; i < 8; i++) {
-    strip.setPixelColor(i, 30, 180, 40, 20);
-    strip.show();
-    delay(10);
-  }
+    case 11 ... 20:
+      Serial.print("Within 20cm - orange");
+      strip.fill(orange);
+      strip.show();
+      break;
+    case 21 ... 30:
+      Serial.print("Within 30cm - yellow");
+      strip.fill(yellow);
+      strip.show();
       break;
     default:
-      Serial.print("Over 50cm");
-      for (int i = 0; i < 12; i++) {
-    strip.setPixelColor(i, 30, 180, 40, 20);
-    strip.show();
-    delay(10);
+      Serial.print("Over 70cm");
+      strip.fill(magenta);
+      strip.show();
   }
-  }
-
-  delay(1000);
-  strip.fill(magenta);
+  delay(500);
 }
