@@ -2,14 +2,14 @@
 
 #define LED_PIN 6
 
-#define LED_COUNT 12
+#define LED_COUNT 24
 
-Adafruit_NeoPixel strip(LED_COUNT, LED_PIN, NEO_RGBW + NEO_KHZ800);
+Adafruit_NeoPixel strip(LED_COUNT, LED_PIN, NEO_GRB + NEO_KHZ800);
 uint32_t magenta = strip.Color(255, 0, 255, 0);
 
 void setup() {
   strip.begin();
-  // strip.setBrightness(10); // Setting brightness to 64 out of 255
+  strip.setBrightness(10); // Setting brightness to 64 out of 255
   strip.show();  // Initialize all pixels to 'off'
 }
 

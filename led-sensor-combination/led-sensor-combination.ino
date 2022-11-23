@@ -25,7 +25,7 @@ void setup() {
   pinMode(echoPin, INPUT);   // Sets the echoPin as an Input
 
   strip.begin();
-  strip.setBrightness(10); // Setting brightness to 64 out of 255
+  strip.setBrightness(60); // Setting brightness to 64 out of 255
   strip.show();  // Initialize all pixels to 'off'
 }
 
@@ -73,4 +73,6 @@ void loop() {
       strip.show();
   }
   delay(500);
+  strip.rainbow();
+  delay(1000);
 }
