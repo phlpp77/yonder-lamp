@@ -9,7 +9,7 @@ uint32_t magenta = strip.Color(255, 0, 255, 0);
 
 void setup() {
   strip.begin();
-  strip.setBrightness(10); // Setting brightness to 64 out of 255
+  strip.setBrightness(100); // Setting brightness to 64 out of 255
   strip.show();  // Initialize all pixels to 'off'
 }
 
