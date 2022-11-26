@@ -1,8 +1,8 @@
 // Setup of NeoPixel LEDs
 #include <Adafruit_NeoPixel.h>
 #define LED_PIN 6
-#define LED_COUNT 12
-Adafruit_NeoPixel strip(LED_COUNT, LED_PIN, NEO_GRBW + NEO_KHZ800);
+#define LED_COUNT 24
+Adafruit_NeoPixel strip(LED_COUNT, LED_PIN, NEO_GRB + NEO_KHZ800);
 uint32_t magenta = strip.Color(148, 0, 211, 0);
 uint32_t purple = strip.Color(75, 0, 130, 0);
 uint32_t blue = strip.Color(0, 0, 255, 0);
@@ -25,7 +25,7 @@ void setup() {
   pinMode(echoPin, INPUT);   // Sets the echoPin as an Input
 
   strip.begin();
-  strip.setBrightness(60); // Setting brightness to 64 out of 255
+  strip.setBrightness(60); // Setting brightness to 60 out of 255
   strip.show();  // Initialize all pixels to 'off'
 }
 
